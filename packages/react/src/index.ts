@@ -75,7 +75,7 @@ export const useSetChain = (
     connectedChain: ConnectedChain | null
     settingChain: boolean
   },
-  (options: SetChainOptions) => Promise<boolean>
+  (options: SetChainOptions) => Promise<void>
 ] => {
   if (!web3Onboard) throw new Error('Must initialize before using hooks.')
 
@@ -108,14 +108,12 @@ export const useSetChain = (
     return () => subscription.unsubscribe()
   }, [])
 
-  const set = useCallback(async (options: SetChainOptions): Promise<boolean> => {
+  const set = useCallback(async (options: SetChainOptions) => {
     setInProgress(true)
 
-    const success = await setChain({ ...options, wallet: walletLabel })
+    await setChain({ ...options, wallet: walletLabel })
 
     setInProgress(false)
-
-    return success;
   }, [])
 
   return [{ chains, connectedChain, settingChain }, set]

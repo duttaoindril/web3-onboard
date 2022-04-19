@@ -89,11 +89,8 @@ const mountAccountSelect = (
         --margin-5: 0.5rem;
 
         /* MODAL POSITION */
-        --account-select-modal-z-index: 20;
-        --account-select-modal-top: unset;
-        --account-select-modal-right: unset;
-        --account-select-modal-bottom: unset;
-        --account-select-modal-left: unset;
+        --top-1: 1rem;
+        --right-1: 1rem;
 
         /* SHADOWS */
         --shadow-1: 0px 4px 12px rgba(0, 0, 0, 0.1);
